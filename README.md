@@ -1,5 +1,5 @@
 ## contain two project Diffie-Hellman and keycloak
 
-## [keycloak](keycloak_drf/README.md)
+## [keycloak](keycloak_drf/)
 
-## [diffie hellman](DiffieHellman/README.md)
+## [diffie hellman](DiffieHellman/=)
