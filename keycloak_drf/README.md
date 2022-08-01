@@ -2,6 +2,17 @@
 
 ## [Keycloak](integeration/keycloak/)
 
+## DEPENDANCE
+```
+Django
+psycopg2-binary
+requests
+djangorestframework
+django-environ
+djangorestframework_simplejwt
+ipython
+```
+
 ## RUN
 
 `docker-compose up --build`
