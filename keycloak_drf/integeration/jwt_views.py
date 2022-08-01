@@ -7,9 +7,13 @@ from rest_framework_simplejwt.exceptions import (
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
 )
-from .serializers import LoginSerializer
-from integeration.keycloak.token import UserTokenKeycloakHandler
+
+from integeration.keycloak.token import (
+    UserTokenKeycloakHandler,
+)
+
 from .models import User
+from .serializers import LoginSerializer
 
 
 class KeycloakTokenObtainPairView(TokenObtainPairView):

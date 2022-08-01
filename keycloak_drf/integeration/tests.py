@@ -1,6 +1,8 @@
 from unittest.mock import patch
-from django.urls import reverse
+
 from django.test import TestCase
+from django.urls import reverse
+
 from .models import User
 
 

@@ -1,9 +1,11 @@
 import logging
-import requests
+
 from django.conf import settings
 from django.core.cache import cache
-from integeration import constants
 
+import requests
+
+from integeration import constants
 
 logger = logging.getLogger(__name__)
 
@@ -33,10 +35,6 @@ class AdminTokenKeycloakHandler(TokenKeycloakHandler):
         """
             to getting token
         """
-        access_token_or_none = cache.get(constants.access_token_cache_str.format(self.username))
-        if access_token_or_none:
-            return access_token_or_none
-
         try:
             response = requests.post(url=self.url, data=self.access_token_attribute)
         except Exception as e:
@@ -69,7 +67,7 @@ class UserTokenKeycloakHandler(TokenKeycloakHandler):
         self.username = self.kwargs.get('username')
 
         self.access_token_attribute = {
-            "username": self.kwargs.get('username'),
+            "username": self.username,
             "password": self.kwargs.get('password'),
             "client_id": settings.KEYCLOAK_CLIENT_ID,
             "client_secret": settings.KEYCLOAK_CLIENT_SECRECT,

@@ -1,7 +1,10 @@
-from integeration.jwt_views import KeycloakTokenObtainPairView
 from django.urls import path
-from .import viewsets
 
+from integeration.jwt_views import (
+    KeycloakTokenObtainPairView,
+)
+
+from . import viewsets
 
 urlpatterns = [
     path('token/', KeycloakTokenObtainPairView.as_view(), name='token_obtain_pair'),

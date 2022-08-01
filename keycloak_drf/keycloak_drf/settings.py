@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import logging
-import environ
 from pathlib import Path
+
+import environ
 
 logger = logging.getLogger(__name__)
 
@@ -182,18 +183,16 @@ AUTH_USER_MODEL = 'integeration.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-KEYCLOAK_CLIENT_SECRECT = env('KEYCLOAK_CLIENT_SECRECT', default='c9Rwr3gHHs8jDgnOcRmKZmOt7dG2kUBQ')
-KEYCLOAK_CLIENT_ID = env('KEYCLOAK_CLIENT_ID', default='aboda-client')  # admin-cli
-KEYCLOAK_GRANT_TYPE = env('KEYCLOAK_GRANT_TYPE', default='client_credentials')  # client_credentials
-KEYCLOAK_MASTER_REALM = env('KEYCLOAK_MASTER_REALM', default='master')  # master
-KEYCLOAK_CREATE_RETRIEVE_USER_API = env(
-    'KEYCLOAK_CREATE_RETRIEVE_USER_API', default='http://localhost:8080/admin/realms/montymobile/users')
-KEYCLOAK_ADMIN_TOKEN_API = env(
-    'KEYCLOAK_ADMIN_TOKEN_API', default='http://localhost:8080/admin/realms/master/protocol/openid-connect/token')
-KEYCLOAK_USER_TOKEN_API = env(
-    'KEYCLOAK_USER_TOKEN_API', default='http://localhost:8080/admin/realms/master/protocol/openid-connect/token')
-KEYCLOAK_USER_INFO_API = env(
-    'KEYCLOAK_USER_INFO_API', default='http://localhost:8080/realms/master/protocol/openid-connect/userinfo')
+KEYCLOAK_CLIENT_SECRECT = env('KEYCLOAK_CLIENT_SECRECT')
+KEYCLOAK_CLIENT_ID = env('KEYCLOAK_CLIENT_ID')
+KEYCLOAK_ADMIN_USERNAME = env('KEYCLOAK_ADMIN_USERNAME')
+KEYCLOAK_ADMIN_PASSWORD = env('KEYCLOAK_ADMIN_PASSWORD')
+KEYCLOAK_GRANT_TYPE = env('KEYCLOAK_GRANT_TYPE')
+KEYCLOAK_CREATE_RETRIEVE_USER_API = env('KEYCLOAK_CREATE_RETRIEVE_USER_API')
+KEYCLOAK_ADMIN_TOKEN_API = env('KEYCLOAK_ADMIN_TOKEN_API')
+KEYCLOAK_USER_MASTER_TOKEN_API = env('KEYCLOAK_USER_MASTER_TOKEN_API')
+KEYCLOAK_USER_TOKEN_API = env('KEYCLOAK_USER_TOKEN_API')
+KEYCLOAK_USER_INFO_API = env('KEYCLOAK_USER_INFO_API')
 
 
 REST_FRAMEWORK = {
