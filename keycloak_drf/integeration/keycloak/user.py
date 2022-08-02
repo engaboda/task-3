@@ -10,9 +10,7 @@ logger = logging.getLogger(__name__)
 class UserKeycloakHandler:
 
     def __init__(self, *args, **kwargs):
-        # here i will take url from setting as env var because if we need change our host
         self.create_user_url = settings.KEYCLOAK_CREATE_RETRIEVE_USER_API
-        self.user_info_url = settings.KEYCLOAK_USER_INFO_API
 
         self.access_token = kwargs.get('access_token')
 
@@ -41,7 +39,6 @@ class UserKeycloakHandler:
     def get_user_role(self):
         """
             here i will add param called `username` to filter user by username.
-            * please make sure token is in cache => OR IT WILL NOT WORK.
         """
         headers = {
             'Content-Type': 'application/json',

@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 class TokenKeycloakHandler:
     """
         i will use it for getting token for User.
-        keycloak configuration is to save token for one day so i will cache token for one day.
+        keycloak configuration is to save token for one day.
     """
 
     def __init__(self, *args, **kwargs):
@@ -43,10 +43,6 @@ class AdminTokenKeycloakHandler(TokenKeycloakHandler):
 
         if response.status_code == 200:
             response_data = response.json()
-            cache.set(
-                constants.access_token_cache_str.format(self.username),
-                response_data,
-                constants.one_day_cache_period)
             return response_data
 
         logger.error(f'<Token> error happened: {response.text}')
@@ -100,7 +96,7 @@ class UserTokenKeycloakHandler(TokenKeycloakHandler):
 
     def get_token(self):
         """
-            to getting token
+            to getting token make sure to make keycloak to save token for one day.
         """
         access_token_or_none = cache.get(constants.access_token_cache_str.format(self.username))
         if access_token_or_none:
